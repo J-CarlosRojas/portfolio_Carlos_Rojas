@@ -27,11 +27,11 @@ a {
   text-decoration: none;
 }
 
-
-
-.htmlSaludo{
-  font-size: 1.5rem;
-  color:#000000;
+.htmlSaludo {
+ 
+  font-style: normal;
+  font-size: 1.7rem;
+  color: #000000;
   min-width: 50vh;
-  z-index:10 ;
+  z-index: 10;
 }
