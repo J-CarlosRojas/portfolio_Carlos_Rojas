@@ -20,16 +20,22 @@ export default function App() {
                 TSU/Ingeniería TI en entornos virtuales y negocios digitales, con habilidades en modelado 3D (Blender) y desarrollo en Unity
                 y Godot.
                 <br />
-                <br /> Experiencia en programación web (HTML, JavaScript, CSS) y en aplicaciones con React y React Native.
+                <br /> Experiencia en programación web (HTML, JavaScript, CSS) y en aplicaciones con React, React Native, three JS.
               </Html>
 
               <Typography text="Estudios" position={[0, -3, 10]} />
               <Html className="htmlSaludo" position={[-0.5, -3.3, 11]}>
-                TSU/Ingeniería TI en Entornos Virtuales y Negocios Digitales. Universidad Tecnológica de la Riviera Maya. 2022 - Actualidad
-                (Quinto cuatrimestre).
+                <b>TSU/Ingeniería TI en Entornos Virtuales y Negocios Digitales.</b> <br />
+                Universidad Tecnológica de la Riviera Maya.  <br /><i>2022 - Actualidad (Quinto cuatrimestre).</i>
                 <br />
                 <br />
-                Programa Oracle NEXT Education. 2023 Bachillerato en artes y humanidades CEDART Ignacio Mariano de las Casas.
+                <b>Programa Oracle NEXT Education.</b>
+                <br />
+               <i>2023</i> 
+                <br />
+                <br />
+                <b>Bachillerato en artes y humanidades</b>
+                <br /> CEDART Ignacio Mariano de las Casas.
               </Html>
               <Typography text="Proyectos" position={[0, -6, 10]} />
               <Html className="htmlSaludo" position={[-0.5, -6.3, 11]}>
@@ -53,10 +59,6 @@ function Lens({ children, damping = 0.25, ...props }) {
   const viewport = useThree((state) => state.viewport)
   const [scene] = useState(() => new THREE.Scene())
   useFrame((state, delta) => {
-    // Tie lens to the pointer
-    // getCurrentViewport gives us the width & height that would fill the screen in threejs units
-    // By giving it a target coordinate we can offset these bounds, for instance width/height for a plane that
-    // sits 15 units from 0/0/0 towards the camera (which is where the lens is)
     const viewport = state.viewport.getCurrentViewport(state.camera, [0, 0, 15])
     easing.damp3(
       ref.current.position,
@@ -64,10 +66,7 @@ function Lens({ children, damping = 0.25, ...props }) {
       damping,
       delta
     )
-    // This is entirely optional but spares us one extra render of the scene
-    // The createPortal below will mount the children of <Lens> into the new THREE.Scene above
-    // The following code will render that scene into a buffer, whose texture will then be fed into
-    // a plane spanning the full screen and the lens transmission material
+
     state.gl.setRenderTarget(buffer)
     state.gl.setClearColor('#d8d7d7')
     state.gl.render(scene, state.camera)
@@ -96,7 +95,7 @@ function Images() {
   })
   return (
     <group ref={group}>
-      <Image position={[-2, 0, 0]} scale={[4, height, 1]} url="/img1.jpg" />
+      <Image position={[-3, 0, 0]} scale={[4, height, 1]} url="/img1.jpg" />
     </group>
   )
 }
